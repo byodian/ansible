@@ -1,0 +1,8 @@
+webservers:
+  hosts:
+    vm01:
+      ansible_host: 150.230.203.92
+    vm02:
+      ansible_host: 168.138.204.157
+  vars:
+    ansible_user: ubuntu

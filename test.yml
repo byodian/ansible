@@ -1,6 +1,10 @@
 - hosts: localhost
   tasks:
-  - name: Update apt
-    become: true
-    apt:
-      update_cache: true
+    # task 1
+    - name: test connection
+      ping:
+      register: message
+
+    - name: print debug message
+      debug:
+        msg: "{{ message }}"

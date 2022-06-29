@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Uninstall node
+npm uninstall -g yarn typescript-language-server typescript
+sudo apt pure nodejs npm
+rm /usr/local/lib/node_modules/n/bin/n
+rm /usr/local/bin/n
+rm /usr/local/bin/node
+
+# Uninstall zsh
+uninstall_oh_my_zsh
+chsh -s /bin/bash
+sudo apt purge zsh
+
+# Uninstall fish
+sudo apt purge fish
+
+# Uninstall Core Package
+sudo apt purge -y curl htop stow tmux build-essential golang fzf lsof yarn python3-pip xclip clanged screenKey lua tldr exa fd
