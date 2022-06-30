@@ -1,0 +1,9 @@
+- name: ansible.builtin.import_tasks module
+  hosts: localhost 
+  tasks:
+    - name: Print Message
+      debug:
+        msg: "Hello, this is import_tasks module"
+
+    - name: importing a tasks from file
+      import_tasks: test.yml

@@ -1,0 +1,6 @@
+- name: Make avaible users manage nodes
+  ansible.builtin.debug:
+    msg: "Hello {{ item }}"
+  loop:
+    - peter
+    - join

@@ -1,0 +1,9 @@
+- name: ansible.builtin.include_tasks module
+  hosts: localhost 
+  tasks:
+    - name: Print Message
+      debug:
+        msg: "Hello, this is include_tasks module"
+
+    - name: including a tasks from file
+      include_tasks: test.yml
