@@ -4,3 +4,9 @@
   loop:
     - peter
     - join
+  tags: name
+
+- name: Print age information
+  ansible.builtin.debug:
+    msg: "I'am 27 years old."
+  tags: age

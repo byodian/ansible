@@ -1,0 +1,14 @@
+- name: Test Ansible Modules
+  hosts: localhost
+  pre_tasks:
+    - name: Echo welcome message
+      ansible.builtin.debug:
+        msg: "Welcome to ansible"
+
+  tasks:
+    - name: Adding tags to individual tasks
+      include_tasks: test.yml
+      tags: [name,age]
+      # tags:
+      #   - name
+      #   - age

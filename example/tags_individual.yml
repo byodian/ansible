@@ -1,0 +1,12 @@
+- name: Adding tags to individual tasks
+  hosts: localhost
+  tasks:
+    - name: Print name message
+      ansible.builtin.debug:
+        msg: "I'm john."
+      tags: name
+
+    - name: Print age message
+      ansible.builtin.debug:
+        msg: "I'm 28 years old."
+      tags: age
