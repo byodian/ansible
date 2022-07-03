@@ -1,0 +1,12 @@
+- name: Using a register variable
+  hosts: localhost
+  tasks:
+    - name: Check that .config file exists
+      ansible.builtin.stat:
+        path: /home/byodian/.config
+      register: my_config
+
+    - name: Print variable
+      ansible.builtin.debug:
+        var: my_config
+      when: my_config.stat.exists == true

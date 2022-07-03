@@ -1,0 +1,14 @@
+- name: Basic usage
+  hosts: localhost
+  tasks:
+    - name: Print HOME env   
+      ansible.builtin.debug:
+        msg: "{{ lookup('ansible.builtin.env', 'HOME') }}"
+
+    - name: Before 2.13, how to set default value if the variable is not defined.
+      ansible.builtin.debug:
+        msg: "{{ lookup('ansible.builtin.env', 'USR')|default('nobody', True) }}"
+
+    - name: Example how to set default if the variable is not defined, ignores USR=""
+      ansible.builtin.debug:
+        msg: "{{ lookup('ansible.builtin.env', 'USR', default='nobody') }}"
