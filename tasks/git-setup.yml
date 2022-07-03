@@ -1,0 +1,35 @@
+- name: Add email to ~/.gitconfig
+  community.general.git_config:
+    name: user.email
+    scope: global
+    value: "byj6696@gmail.com"
+  tags: &gitconfig_tags [ "tags_for_git" ] 
+
+- name: Add name to ~/.gitconfig
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: "byodian"
+  tags: *gitconfig_tags
+
+- name: Add editor to ~/.gitconfig
+  community.general.git_config:
+    name: core.editor
+    scope: global
+    value: "nvim"
+  tags: *gitconfig_tags
+
+
+- name: Add merge tool to ~/.gitconfig
+  community.general.git_config:
+    name: merge.tool
+    scope: global
+    value: "vimdiff"
+  tags: *gitconfig_tags
+
+- name: Add mergetool vimdiff path to ~/.gitconfig
+  community.general.git_config:
+    name: mergetool.vimdiff.path
+    scope: global
+    value: "nvim"
+  tags: *gitconfig_tags

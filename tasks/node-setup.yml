@@ -1,0 +1,27 @@
+- name: Install nodejs and npm
+  become: true
+  ansible.builtin.apt:
+    name: ["nodejs", "npm"]
+  tags: &tags_for_node ["install", "node"]
+
+- name: npmjs prefix
+  ansible.builtin.shell: mkdir -p ~/.local/.npm-global
+  tags: *tags_for_node
+
+- name: npmjs global settings
+  ansible.builtin.shell: npm config set prefix '~/.local/.npm-global'
+  tags: *tags_for_node
+
+- name: npmjs global settings export path in case I don't have dotfiles installed
+  ansible.builtin.shell: export PATH=~/.local/.npm-global/bin:$PATH
+  tags: *tags_for_node
+
+- name: Install N
+  npm:
+    name: n
+    global: yes
+  tags: *tags_for_node
+
+- name: Install correct version of Node
+  ansible.builtin.shell: n 16
+  tags: *tags_for_node

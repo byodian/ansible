@@ -1,0 +1,36 @@
+- name: Download fish repository
+  ansible.builtin.apt_repository:
+    repo: ppa:fish-shell/release-3
+    update_cache: true
+    state: present
+  become: true
+  tags: &tags_for_fish_tasks ["install", "productivity", "dotfiles", "fish"]
+
+- name: Install fish
+  ansible.builtin.apt:
+    name: fish
+    state: present
+  become: true
+  tags: *tags_for_fish_tasks
+
+- name: Check that fish file exist
+  ansible.builtin.stat:
+    path: "{{ lookup('env', 'HOME') }}/.config/fish/functions"
+  register: fish_config
+  tags: *tags_for_fish_tasks
+
+- name: Make fish functions directory
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/fish/functions"
+    state: directory
+    mode: 0755
+    recurse: yes
+  when: fish_config.stat.exists == false
+  tags: *tags_for_fish_tasks
+
+- name: Download fisher plugin
+  become: true
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish"
+    dest: "{{ lookup('env', 'HOME') }}/.config/fish/functions/fisher.fish"
+  tags: *tags_for_fish_tasks

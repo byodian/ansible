@@ -1,0 +1,26 @@
+- name: Install System Package 1 (build-essential, cmake)
+  become: true
+  ansible.builtin.apt:
+    name: ["build-essential", "cmake"]
+  tags:
+    - install
+    - neovim
+    - core
+
+- name: Install System Package 2 (unzip, lua)
+  become: true
+  ansible.builtin.apt:
+    name: ["lua5.1", "unzip"]
+  tags:
+    - install
+    - neovim
+    - core
+
+- name: Install System Package 3 (curl htop lsof python3-pip clangd)
+  become: true
+  ansible.builtin.apt:
+    name: ["curl", "htop", "lsof", "python3-pip", "clangd"]
+  tags:
+    - install
+    - neovim
+    - core
