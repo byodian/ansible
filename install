@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 sudo apt install software-properties-common
 sudo apt-add-repository --yes ppa:ansible/ansible
-sudo apt-add-repository --yes ppa:neovim-ppa/stable
+sudo apt-add-repository --yes ppa:neovim-ppa/unstable
 sudo apt update
 sudo apt install --yes ansible curl git neovim
