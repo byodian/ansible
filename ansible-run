@@ -4,14 +4,15 @@ set -e
 # Dotfiles's project root directory
 ROOTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 #Host file location
-HOSTS="$ROOTDIR/hosts"
+HOSTS="$ROOTDIR/inventroy"
 # Main playbook
-PLAYBOOK="$ROOTDIR/dotfiles.yml"
+PLAYBOOK="$ROOTDIR/local.yml"
 
 # Install ansible
 sudo apt-add-repository -y ppa:ansible/ansible
+sudo apt-add-repository -y ppa:neovim-ppa/unstable
 sudo apt-get update -y
-sudo apt-get install -y curl git software-properties-common ansible
+sudo apt-get install -y curl git software-properties-common ansible neovim
 
 # Runs Ansible playbook using our user.
 ansible-playbook -i "$HOSTS" "$PLAYBOOK" --ask-become-pass

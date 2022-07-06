@@ -1,9 +1,2 @@
 [local]
 localhost
-
-[local:vars]
-ansible_connection=local
-
-[webservers]
-vm01 ansible_host=150.230.203.92 ansible_user=ubuntu
-vm02 ansible_host=168.138.204.157 ansible_user=ubuntu
