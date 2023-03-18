@@ -17,11 +17,11 @@
     - include_tasks: tasks/ssh.yml
     - include_tasks: tasks/git-setup.yml
     - include_tasks: tasks/core-setup.yml
-    - include_tasks: tasks/zsh-setup.yml
-    - include_tasks: tasks/fish-setup.yml
     - include_tasks: tasks/node-setup.yml
     - include_tasks: tasks/npm-package.yml
     # - include_tasks: tasks/personal-projects.yml
     - include_tasks: tasks/nvim-setup.yml
     - include_tasks: tasks/dotfiles.yml
+    - include_tasks: tasks/zsh-setup.yml
+    - include_tasks: tasks/fish-setup.yml
     - include_tasks: tasks/productivity-tools.yml

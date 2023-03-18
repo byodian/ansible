@@ -28,9 +28,10 @@
   when: fish_config.stat.exists == false
   tags: *tags_for_fish_tasks
 
-# - name: Download fisher plugin
-#   become: true
-#   ansible.builtin.get_url:
-#     url: "https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish"
-#     dest: "{{ lookup('env', 'HOME') }}/.config/fish/functions/fisher.fish"
-#   tags: *tags_for_fish_tasks
+- name: Install fisher plugin
+  shell: curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+  tags: *tags_for_fish_tasks
+
+- name: Install plugins listed in fish_plugins file
+  shell: fish -c 'cat {{ lookup('env', 'HOME') }}/.config/fish/fish_plugins | fisher install'
+  tags: *tags_for_fish_tasks

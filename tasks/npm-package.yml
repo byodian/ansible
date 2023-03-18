@@ -9,3 +9,23 @@
     name: typescript
     global: yes
   tags: *tags_for_node
+
+- name: Install ls_emmet language server for neovim
+  npm:
+    name: ls_emmet
+    global: yes
+  tags: *tags_for_node
+
+- name: Install pnpm
+  npm:
+    name: pnpm
+    global: yes
+  tags: *tags_for_node
+
+- name: Install pnpm completion
+  shell: |
+    pnpm install-completion zsh
+    pnpm install-completion bash
+    pnpm install-completion zsh
+  become: true
+  tags: *tags_for_node
