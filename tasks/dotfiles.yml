@@ -1,5 +1,5 @@
 - name: Installing stow
-  become: yes
+  become: true
   ansible.builtin.apt: name=stow
   tags:
     - install
