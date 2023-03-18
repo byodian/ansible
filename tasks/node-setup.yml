@@ -13,7 +13,7 @@
   tags: *tags_for_node
 
 - name: npmjs global settings export path in case I don't have dotfiles installed
-  ansible.builtin.shell: export PATH=~/.local/.npm-global/bin:$PATH
+  ansible.builtin.shell: bash -c export PATH=~/.local/.npm-global/bin:$PATH
   tags: *tags_for_node
 
 - name: Install N

@@ -15,6 +15,6 @@ sudo apt-get update -y
 sudo apt-get install -y curl git software-properties-common ansible neovim
 
 # Runs Ansible playbook using our user.
-ansible-playbook -i "$HOSTS" "$PLAYBOOK" --ask-become-pass --ask-valut-pass
+ansible-playbook -i "$HOSTS" "$PLAYBOOK" --ask-become-pass --ask-vault-pass
 
 exit 0
