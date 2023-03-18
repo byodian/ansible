@@ -1,5 +1,5 @@
 - name: My first play
-  hosts: webservers # inventory.yml
+  hosts: webservers # inventory-host.yml
   tasks:
     - name: Ping my hosts
       ansible.builtin.ping:
