@@ -1,0 +1,18 @@
+- name: Install Java Version Manager - jabba
+  become: true
+  shell: fish -c "(curl -sL https://github.com/shyiko/jabba/raw/master/install.sh) | bash; and . ~/.jabba/jabba.fish"
+  tags: &tags_for_java ["java"]
+
+# - name: Install Java
+#   become: true
+#   shell: | 
+#     fish -c "jabba install amazon-corretto@1.8.292-10.1"
+#     fish -c "jabba alias default amazon-corretto@1.8.292-10.1"
+#   tags: *tags_for_java 
+
+- name: Install Maven
+  become: true
+  ansible.builtin.apt:
+    name: maven
+  tags: *tags_for_java
+
