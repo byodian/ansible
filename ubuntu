@@ -1,0 +1,17 @@
+#!/usr/bin/env fish
+
+# cat ~/.config/fish/fish_plugins | fisher install
+
+# Check if fisher is installed
+if not type -q fisher
+    echo "fisher is not installed"
+else
+    if test -f ~/.config/fish/fish_plugins
+      cat ~/.config/fish/fish_plugins | fisher install
+      echo "fish_plugins exists"
+    end
+end
+
+if type -q pnpm
+  pnpm install-completion fish
+end
