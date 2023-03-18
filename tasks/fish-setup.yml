@@ -29,9 +29,10 @@
   tags: *tags_for_fish_tasks
 
 - name: Install fisher plugin
-  shell: curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+  shell: fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source'
+  become: true
   tags: *tags_for_fish_tasks
 
-- name: Install plugins listed in fish_plugins file
-  shell: fish -c 'cat {{ lookup('env', 'HOME') }}/.config/fish/fish_plugins | fisher install'
-  tags: *tags_for_fish_tasks
+#- name: Install plugins listed in fish_plugins file
+#  shell: fish -c 'cat {{ lookup('env', 'HOME') }}/.config/fish/fish_plugins | fisher install'
+#  tags: *tags_for_fish_tasks

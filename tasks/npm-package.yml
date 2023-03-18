@@ -22,10 +22,12 @@
     global: yes
   tags: *tags_for_node
 
-- name: Install pnpm completion
-  shell: |
-    pnpm install-completion zsh
-    pnpm install-completion bash
-    pnpm install-completion zsh
-  become: true
-  tags: *tags_for_node
+# - name: Install pnpm completion
+#   shell: |
+#     pnpm install-completion zsh
+#     pnpm install-completion bash
+#     pnpm install-completion zsh
+#   args:
+#     executable: /bin/bash
+#   become: true
+#   tags: *tags_for_node
